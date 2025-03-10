@@ -26,3 +26,5 @@ https://netflix-gpt-fs.web.app/
 -- Sign In ==> signInWithEmailAndPassword api
 
 Once  user is Sign in -- we need to store the details in redux store
+-Create store
+- Now on change of auth state change - call the onAuth
