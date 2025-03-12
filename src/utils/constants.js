@@ -7,3 +7,5 @@ export const API_options = {
       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4MDVmOGMyMDdiMmEyMjdhNWIzNTY2YjQyMDA1ZDE1NSIsIm5iZiI6MTc0MTYxOTM1Mi43MTYsInN1YiI6IjY3Y2YwMDk4ZDk1ZTQxMWRkMDJhODMwZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.iegeG87yofZ--9EM8rT2jG-GPHPUjApo8ObgdbqZpYg'
     }
   }
+  // FROM TMDB -->guides -->Images --> URL 
+  export const MOVIE_CDN_URL = 'https://image.tmdb.org/t/p/w200'

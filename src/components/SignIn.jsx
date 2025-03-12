@@ -25,8 +25,6 @@ function SignIn() {
 
   const handleForm = (e) => {
     e.preventDefault();
-    // console.log(email.current.value);
-    // console.log(password.current.value);
     const errortext = validateForm(email.current.value, password.current.value);
     setErrorMessage(errortext);
     if (errortext) return;
@@ -40,7 +38,6 @@ function SignIn() {
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
-          console.log(user);
           updateProfile(user, {
             displayName: fname.current.value,
             photoURL:USER_AVATAR ,
@@ -74,8 +71,8 @@ function SignIn() {
       )
         .then((userCredential) => {
           // Signed in
+          // eslint-disable-next-line no-unused-vars
           const user = userCredential.user;
-          // console.log(user);
           // We will use onAuthStateChanged API from Firebase to track the changes in state(login/logout /sign out)
         })
         .catch((error) => {
