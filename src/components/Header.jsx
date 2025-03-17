@@ -3,9 +3,14 @@ import { auth } from "../utils/firebase.config";
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { addUser, removeUser } from "../utils/userSlice";
+import { addUser, removeUser } from "../utils/store/userSlice";
+import { clearGptResults, toggleGptSearchView } from "../utils/store/gptSlice";
+import { LOGO_URL, SUPPORTED_LANG } from "../utils/constants";
+import { setLanguagePreference } from "../utils/store/configSlice";
 function Header() {
   const user = useSelector((store) => store.user);
+  const showLangOption = useSelector((store) => store.gpt?.showGptSearch)
+  const langVal = useSelector((store) => store.config?.langSelected)
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -21,6 +26,10 @@ function Header() {
         navigate("/error");
       });
   };
+  const showGPTSearch = () =>{
+    dispatch(toggleGptSearchView())
+    dispatch(clearGptResults())
+  }
   // check if auth state
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -48,15 +57,21 @@ function Header() {
     return () => unsubscribe()
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
+  const handleSelectedLanguage = (e) => {
+    dispatch(setLanguagePreference(e.target.value))
+  }
   return (
     <div className="absolute bg-gradient-to-b z-10  from-black w-screen flex justify-between">
       <img
         className="m-4 w-[150px]"
-        src="https://help.nflxext.com/helpcenter/OneTrust/oneTrust_production/consent/87b6a5c0-0104-4e96-a291-092c11350111/01938dc4-59b3-7bbc-b635-c4131030e85f/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
+        src={LOGO_URL}
       ></img>
       {user && (
         <div className="flex p-3">
+           {showLangOption && <select className="m-5 px-4 rounded-md bg-gray-500 text-white" onChange={handleSelectedLanguage}>
+            {SUPPORTED_LANG.map((selected) => <option key={selected.name} value={selected.name}>{selected.value}</option>)}
+          </select>}
+          <button className="p-2 mx-2 my-4 bg-orange-400 rounded-lg text-white cursor-pointer" onClick={showGPTSearch}>{showLangOption? 'Home Page': 'GPT Search'}</button>
           <img className="w-10 h-10 mt-4" src={user.photoURL}></img>
           <button
             className="font-bold text-white cursor-pointer"

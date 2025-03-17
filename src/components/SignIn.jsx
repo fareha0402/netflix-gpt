@@ -8,8 +8,8 @@ import {
 } from "firebase/auth";
 import { auth } from "../utils/firebase.config";
 import { useDispatch } from "react-redux";
-import { addUser } from "../utils/userSlice";
-import { USER_AVATAR } from "../utils/constants";
+import { addUser } from "../utils/store/userSlice";
+import { BG_URL, USER_AVATAR } from "../utils/constants";
 
 function SignIn() {
   const [isSignIn, setISignIn] = useState(true);
@@ -87,7 +87,7 @@ function SignIn() {
     <>
       <Header />
       <div className="absolute">
-        <img src="https://assets.nflxext.com/ffe/siteui/vlv3/f268d374-734d-474f-ad13-af5ba87ef9fc/web/IN-en-20250210-TRIFECTA-perspective_92338d5d-6ccd-4b1a-8536-eb2b0240a55e_large.jpg"></img>
+        <img src={BG_URL}></img>
       </div>
       <form className="absolute p-10 bg-black w-4/12 mx-auto my-36 right-0 left-0 opacity-80">
         <h1 className=" text-white text-3xl font-bold">

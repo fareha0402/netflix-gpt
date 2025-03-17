@@ -15,9 +15,10 @@ const VideoTitle = ({ title, overview }) => {
   };
   return (
     <div className="pt-[15%] px-10 absolute text-white bg-gradient-to-r from-black w-screen aspect-video">
-      <h1 className={"font-bold text-5xl" + (!show ? 'text-xl font-bold' : '')}>{title}</h1>
-      {show && <p className="p-2 w-1/4 text-lg">{shortenOverView()}</p>}
-      <div className={(!show ? 'mt-6' : '')}>
+      <h1 className="font-bold text-5xl">{title}</h1>
+      {/* {show && <p className="p-2 w-1/4 text-lg">{shortenOverView()}</p>} */}
+      <p className="p-2 w-1/4 text-lg">{shortenOverView()}</p>
+      <div >
         <button className="bg-white hover:bg-green-700 p-2 px-6 text-black w-35 rounded-lg text-xl cursor-pointer">
           Play
         </button>
