@@ -87,10 +87,10 @@ function SignIn() {
     <>
       <Header />
       <div className="absolute">
-        <img src={BG_URL}></img>
+        <img src={BG_URL} className="h-screen object-cover md:h-auto"></img>
       </div>
-      <form className="absolute p-10 bg-black w-4/12 mx-auto my-36 right-0 left-0 opacity-80">
-        <h1 className=" text-white text-3xl font-bold">
+      <form className="absolute p-10 bg-black md:w-4/12  md:mx-auto my-36 right-0 left-0 opacity-80">
+        <h1 className=" text-white text-xl md:text-3xl font-bold">
           {isSignIn ? "Sign In" : "Sign UP"}
         </h1>
         {!isSignIn && (

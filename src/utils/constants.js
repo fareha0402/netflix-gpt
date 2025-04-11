@@ -19,6 +19,4 @@ export const LOGO_URL =
 
 export const SUPPORTED_LANG =[{name:'en', value:'English'},{name:'hindi', value:'Hindi'}]
 
-export const OPEN_API_KEY ='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'
-
-export const GEMINI_API_KEY = 'AIzaSyAxKKovXw0nADXDBTrjPC5kLQaOshvu92s'
+export const GEMINI_API_KEY = 'AIzaSyAxKKovXw0nADXDBTrjPC5kLQaOshvu92s';

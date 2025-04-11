@@ -17,6 +17,6 @@ const VideoBackground = ({ movieId }) => {
       ></iframe>
     </div>
   );
-};
+};  
 
 export default VideoBackground;
